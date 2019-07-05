@@ -120,6 +120,7 @@ fi
 
 export GOPATH=/Users/seravalli/go
 export PATH=$PATH:$GOPATH/bin
+export LC_ALL=en_US.UTF-8
 
 alias kc="kubectl "
 
