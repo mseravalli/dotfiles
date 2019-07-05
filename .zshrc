@@ -121,7 +121,6 @@ fi
 export GOPATH=/Users/seravalli/go
 export PATH=$PATH:$GOPATH/bin
 
-alias vim="/usr/local/Cellar/vim/8.1.0950/bin/vim"
 alias kc="kubectl "
 
 # export WORKON_HOME=~/.virtualenvs
