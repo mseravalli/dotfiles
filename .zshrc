@@ -123,7 +123,7 @@ export PATH=$PATH:$GOPATH/bin
 export LC_ALL=en_US.UTF-8
 
 alias kc="kubectl "
-alisa tf="terraform "
+alias tf="terraform "
 
 # export WORKON_HOME=~/.virtualenvs
 # source virtualenvwrapper.sh
