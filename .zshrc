@@ -127,3 +127,9 @@ alisa tf="terraform "
 
 # export WORKON_HOME=~/.virtualenvs
 # source virtualenvwrapper.sh
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/Users/seravalli/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/seravalli/google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/Users/seravalli/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/seravalli/google-cloud-sdk/completion.zsh.inc'; fi
