@@ -3,4 +3,3 @@ syntax on
 :set ruler
 :set nowrap
 :set colorcolumn=81
-:set mouse=a
