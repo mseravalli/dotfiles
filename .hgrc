@@ -1,0 +1,11 @@
+[ui]
+merge = vimdiff
+
+[color256]
+# Other colors to play with are 52 for a very dark red, 22 for a very dark green
+color.rather_dark_red = 88
+color.rather_dark_green = 28
+diff.deleted.unchanged = rather_dark_red
+diff.inserted.unchanged = rather_dark_green
+diff.deleted.changed = bold brightred
+diff.inserted.changed = bold brightgreen
