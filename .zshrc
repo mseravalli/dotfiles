@@ -106,7 +106,8 @@ bindkey -M vicmd '?' history-incremental-pattern-search-backward
 #bindkey -M vicmd '?' history-incremental-pattern-search-forward
 
 alias ll="ls -lahG"
-alias gssh="gcert && ssh seravalli@seravalli-00.c.googlers.com"
+alias ssh-ct="gcert && ssh seravalli@seravalli-00.c.googlers.com"
+alias ssh-ws="gcert && ssh seravalli@seravalli.muc.corp.google.com"
 
 export PATH="${PATH}:/opt/google-cloud-sdk/bin"
 
