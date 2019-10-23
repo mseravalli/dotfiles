@@ -134,3 +134,6 @@ if [ -f '/Users/seravalli/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/serav
 
 # The next line enables shell command completion for gcloud.
 if [ -f '/Users/seravalli/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/seravalli/google-cloud-sdk/completion.zsh.inc'; fi
+
+# Autocompletion for g4d
+if [ -f '/etc/bash_completion.d/g4d' ]; then source /etc/bash_completion.d/g4d ; fi
