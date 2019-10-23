@@ -1,5 +1,7 @@
 [global_config]
 [keybindings]
+  copy = <Super>c
+  paste = <Super>v
 [profiles]
   [[default]]
     allow_bold = False
