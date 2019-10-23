@@ -97,3 +97,6 @@ syntax on
 :set ruler
 :set nowrap
 :set colorcolumn=81
+set backupdir=.backup/,~/.backup/,/tmp//
+set directory=.swp/,~/.swp/,/tmp//
+set undodir=.undo/,~/.undo/,/tmp//
