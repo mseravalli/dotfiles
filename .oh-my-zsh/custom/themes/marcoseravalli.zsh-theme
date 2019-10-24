@@ -9,7 +9,8 @@ function citc_prompt() {
               print $(i-1)":tests";
               exit;
             }
-            print "citc(" $(i-1) ") ";
+            # bright blue name and bright red citc
+            print "%F{12}citc:(%F{9}" $(i-1) "%F{12})%F ";
             exit;
           }
         }
@@ -40,7 +41,7 @@ export PROMPT_DIRTRIM=2
 
 TITLEBAR="\[\e]0;\$(citc_prompt)\$(switch_citc_prompt)\a\]"
 
-PROMPT="%n@%m %(?:%{$fg_bold[green]%}➜ :%{$fg_bold[red]%}➜ )"
+PROMPT="%n@%m %(?:%{$fg_bold[green]%}➜ :%{$fg_bold[red]%}➜ )%{$reset_color%}"
 PROMPT+=' $(citc_prompt)$(git_prompt_info)%{$fg[cyan]%}%2d%{$reset_color%} '
 
 ZSH_THEME_GIT_PROMPT_PREFIX="%{$fg_bold[blue]%}git:(%{$fg[red]%}"
