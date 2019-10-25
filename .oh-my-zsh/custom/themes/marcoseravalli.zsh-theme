@@ -18,10 +18,13 @@ function vcs_info() {
   )
 
   if [ ! -z "${VCS_INFO}" ]; then
-    echo -n "%F{12}citc:(%F{9}${VCS_INFO}%F{12})%F";
-    return
+    echo -n "%B%F{blue}citc:(%F{red}${VCS_INFO}%F{blue})%f%b"; return
   fi
 
+  ZSH_THEME_GIT_PROMPT_PREFIX="%B%F{blue}git:(%F{red}"
+  ZSH_THEME_GIT_PROMPT_SUFFIX="%{$reset_color%} "
+  ZSH_THEME_GIT_PROMPT_DIRTY="%F{blue})%b %{$fg[yellow]%}✗%f"
+  ZSH_THEME_GIT_PROMPT_CLEAN="%F{blue})%b %{$fg[green]%}✓%f"
   echo -n $(git_prompt_info)
 }
 
@@ -51,7 +54,3 @@ TITLEBAR="\[\e]0;\$(citc_prompt)\$(switch_citc_prompt)\a\]"
 PROMPT="%n@%m %(?:%{$fg_bold[green]%}➜ :%{$fg_bold[red]%}➜ )%{$reset_color%}"
 PROMPT+=' $(vcs_info) %{$fg[cyan]%}%${PROMPT_DIRTRIM}d%{$reset_color%} '
 
-ZSH_THEME_GIT_PROMPT_PREFIX="%{$fg_bold[blue]%}git:(%{$fg[red]%}"
-ZSH_THEME_GIT_PROMPT_SUFFIX="%{$reset_color%} "
-ZSH_THEME_GIT_PROMPT_DIRTY="%{$fg[blue]%}) %{$fg[yellow]%}✗"
-ZSH_THEME_GIT_PROMPT_CLEAN="%{$fg[blue]%}) ✓"
