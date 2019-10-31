@@ -1,5 +1,9 @@
+[pager]
+pager = cat
+
 [ui]
 merge = vimdiff
+editor = vim
 
 [color256]
 # Other colors to play with are 52 for a very dark red, 22 for a very dark green
