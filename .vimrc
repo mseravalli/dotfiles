@@ -47,13 +47,18 @@ if filereadable("/usr/share/vim/google/google.vim")
   " autoformatting will never change unrelated lines in a file).
   " Note formatting changed lines only isn't supported yet
   " (see https://github.com/google/vim-codefmt/issues/9).
-  "augroup autoformat_settings
-  autocmd FileType bzl AutoFormatBuffer buildifier
-  autocmd FileType java AutoFormatBuffer gtimporter
+  augroup autoformat_settings
+    autocmd FileType borg,gcl,patchpanel AutoFormatBuffer gclfmt
+    autocmd FileType bzl AutoFormatBuffer buildifier
+    autocmd FileType java AutoFormatBuffer google-java-format
+    autocmd FileType markdown AutoFormatBuffer mdformat
+    autocmd FileType proto AutoFormatBuffer protofmt
+    autocmd FileType python AutoFormatBuffer pyformat
+    autocmd FileType textpb AutoFormatBuffer text-proto-format
   "  autocmd FileType go AutoFormatBuffer gofmt
   "  See go/vim/plugins/codefmt-google, :help codefmt-google and :help codefmt
   "  for details about other available formatters.
-  "augroup END
+  augroup END
 
   " Load YCM (http://go/ycm) for semantic auto-completion and quick syntax
   " error checking. Pulls in a google3-enabled version of YCM itself and
