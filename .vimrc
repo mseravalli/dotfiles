@@ -19,7 +19,7 @@ if filereadable("/usr/share/vim/google/google.vim")
   source /usr/share/vim/google/google.vim
 
   " Automatic imports for Java
-  Glug gtimporter
+  Glug google-csimporter
 
   " Plugin configuration.
   " See http://google3/devtools/editors/vim/examples/ for example configurations
@@ -72,6 +72,7 @@ if filereadable("/usr/share/vim/google/google.vim")
   " supported by the Go team. The plugin is currently unsupported for other
   " languages.
   "Glug blazedeps auto_filetypes=`['go']`
+  Glug blazedeps plugin[mappings]
 
   " Load piper integration (http://go/VimPerforce).
   "Glug piper plugin[mappings]
@@ -80,7 +81,7 @@ if filereadable("/usr/share/vim/google/google.vim")
   "Glug critique plugin[mappings]
 
   " Load blaze integration (http://go/blazevim).
-  "Glug blaze plugin[mappings]
+  Glug blaze plugin[mappings]
 
   " Load the syntastic plugin (http://go/vim/plugins/syntastic-google).
   " Note: this requires installing the upstream syntastic plugin from
@@ -105,6 +106,8 @@ call vundle#begin()
 
 " let Vundle manage Vundle, required
 Plugin 'VundleVim/Vundle.vim'
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
 
 " All of your Plugins must be added before the following line
 call vundle#end()
@@ -128,8 +131,14 @@ syntax on
 
 set tabstop=2 shiftwidth=2 expandtab
 set ruler
+set nu
 set nowrap
 set colorcolumn=81
 set backupdir=.backup/,~/.backup/,/tmp//
 set directory=.swp/,~/.swp/,/tmp//
 set undodir=.undo/,~/.undo/,/tmp//
+
+" open new window
+map <leader>t :ter<CR><C-w>j<Esc>i<Esc><C-w>k
+
+let g:airline_theme='solarized'
