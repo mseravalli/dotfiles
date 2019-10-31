@@ -13,70 +13,97 @@
 " Enable modern Vim features not compatible with Vi spec.
 set nocompatible
 
-" Use the 'google' package by default (see http://go/vim/packages).
-source /usr/share/vim/google/google.vim
+" Google specific configuration
+if filereadable("/usr/share/vim/google/google.vim")
+  " Use the 'google' package by default (see http://go/vim/packages).
+  source /usr/share/vim/google/google.vim
 
-" Plugin configuration.
-" See http://google3/devtools/editors/vim/examples/ for example configurations
-" and http://go/vim/plugins for more information about vim plugins at Google.
+  " Automatic imports for Java
+  Glug gtimporter
 
-" Plugin loading is commented out below - uncomment the plugins you'd like to
-" load.
+  " Plugin configuration.
+  " See http://google3/devtools/editors/vim/examples/ for example configurations
+  " and http://go/vim/plugins for more information about vim plugins at Google.
 
-" Load google's formatting plugins (http://go/vim/plugins/codefmt-google).
-" The default mapping is \= (or <leader>= if g:mapleader has a custom value),
-" with
-" - \== formatting the current line or selected lines in visual mode
-"   (:FormatLines).
-" - \=b formatting the full buffer (:FormatCode).
-"
-" To bind :FormatLines to the same key in insert and normal mode, add:
-"   noremap <C-K> :FormatLines<CR>
-"   inoremap <C-K> <C-O>:FormatLines<CR>
-"Glug codefmt plugin[mappings] gofmt_executable="goimports"
-"Glug codefmt-google
+  " Plugin loading is commented out below - uncomment the plugins you'd like to
+  " load.
 
-" Enable autoformatting on save for the languages at Google that enforce
-" formatting, and for which all checked-in code is already conforming (thus,
-" autoformatting will never change unrelated lines in a file).
-" Note formatting changed lines only isn't supported yet
-" (see https://github.com/google/vim-codefmt/issues/9).
-"augroup autoformat_settings
-"  autocmd FileType bzl AutoFormatBuffer buildifier
-"  autocmd FileType go AutoFormatBuffer gofmt
-"  See go/vim/plugins/codefmt-google, :help codefmt-google and :help codefmt
-"  for details about other available formatters.
-"augroup END
+  " Load google's formatting plugins (http://go/vim/plugins/codefmt-google).
+  " The default mapping is \= (or <leader>= if g:mapleader has a custom value),
+  " with
+  " - \== formatting the current line or selected lines in visual mode
+  "   (:FormatLines).
+  " - \=b formatting the full buffer (:FormatCode).
+  "
+  " To bind :FormatLines to the same key in insert and normal mode, add:
+  "   noremap <C-K> :FormatLines<CR>
+  "   inoremap <C-K> <C-O>:FormatLines<CR>
+  "Glug codefmt plugin[mappings] gofmt_executable="goimports"
+  Glug codefmt
+  Glug codefmt-google
 
-" Load YCM (http://go/ycm) for semantic auto-completion and quick syntax
-" error checking. Pulls in a google3-enabled version of YCM itself and
-" a google3-specific default configuration.
-"Glug youcompleteme-google
+  " Enable autoformatting on save for the languages at Google that enforce
+  " formatting, and for which all checked-in code is already conforming (thus,
+  " autoformatting will never change unrelated lines in a file).
+  " Note formatting changed lines only isn't supported yet
+  " (see https://github.com/google/vim-codefmt/issues/9).
+  "augroup autoformat_settings
+  autocmd FileType bzl AutoFormatBuffer buildifier
+  autocmd FileType java AutoFormatBuffer gtimporter
+  "  autocmd FileType go AutoFormatBuffer gofmt
+  "  See go/vim/plugins/codefmt-google, :help codefmt-google and :help codefmt
+  "  for details about other available formatters.
+  "augroup END
 
-" Load the automated blaze dependency integration for Go.
-" Note: for Go, blazedeps uses the Go team's glaze tool, which is fully
-" supported by the Go team. The plugin is currently unsupported for other
-" languages.
-"Glug blazedeps auto_filetypes=`['go']`
+  " Load YCM (http://go/ycm) for semantic auto-completion and quick syntax
+  " error checking. Pulls in a google3-enabled version of YCM itself and
+  " a google3-specific default configuration.
+  "Glug youcompleteme-google
+  " I don't care about c and cpp completion
+  "let g:ycm_filetype_blacklist = {'cpp': 1, 'c': 1}
 
-" Load piper integration (http://go/VimPerforce).
-"Glug piper plugin[mappings]
+  " Load the automated blaze dependency integration for Go.
+  " Note: for Go, blazedeps uses the Go team's glaze tool, which is fully
+  " supported by the Go team. The plugin is currently unsupported for other
+  " languages.
+  "Glug blazedeps auto_filetypes=`['go']`
 
-" Load Critique integration. Use :h critique for more details.
-"Glug critique plugin[mappings]
+  " Load piper integration (http://go/VimPerforce).
+  "Glug piper plugin[mappings]
 
-" Load blaze integration (http://go/blazevim).
-"Glug blaze plugin[mappings]
+  " Load Critique integration. Use :h critique for more details.
+  "Glug critique plugin[mappings]
 
-" Load the syntastic plugin (http://go/vim/plugins/syntastic-google).
-" Note: this requires installing the upstream syntastic plugin from
-" https://github.com/vim-syntastic/syntastic.
-"Glug syntastic-google
+  " Load blaze integration (http://go/blazevim).
+  "Glug blaze plugin[mappings]
 
-" Load the ultisnips plugin (http://go/ultisnips).
-" Note: this requires installing the upstream ultisnips plugin from
-" https://github.com/SirVer/ultisnips.
-"Glug ultisnips-google
+  " Load the syntastic plugin (http://go/vim/plugins/syntastic-google).
+  " Note: this requires installing the upstream syntastic plugin from
+  " https://github.com/vim-syntastic/syntastic.
+  "Glug syntastic-google
+
+  " Load the ultisnips plugin (http://go/ultisnips).
+  " Note: this requires installing the upstream ultisnips plugin from
+  " https://github.com/SirVer/ultisnips.
+  "Glug ultisnips-google
+endif
+
+" Vundle config start
+set nocompatible              " be iMproved, required
+filetype off                  " required
+
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+" alternatively, pass a path where Vundle should install plugins
+"call vundle#begin('~/some/path/here')
+
+" let Vundle manage Vundle, required
+Plugin 'VundleVim/Vundle.vim'
+
+" All of your Plugins must be added before the following line
+call vundle#end()
+" Vundle config end
 
 " All of your plugins must be added before the following line.
 " See go/vim-plugin-manager if you need help picking a plugin manager and
@@ -90,13 +117,14 @@ source /usr/share/vim/google/google.vim
 " You can also use a plugin to:
 " - enter insert mode with paste (https://github.com/tpope/vim-unimpaired)
 " - auto-detect pasting (https://github.com/ConradIrwin/vim-bracketed-paste)
+
 filetype plugin indent on
 syntax on
 
-:set tabstop=2 shiftwidth=2 expandtab
-:set ruler
-:set nowrap
-:set colorcolumn=81
+set tabstop=2 shiftwidth=2 expandtab
+set ruler
+set nowrap
+set colorcolumn=81
 set backupdir=.backup/,~/.backup/,/tmp//
 set directory=.swp/,~/.swp/,/tmp//
 set undodir=.undo/,~/.undo/,/tmp//
