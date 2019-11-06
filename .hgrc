@@ -13,3 +13,6 @@ diff.deleted.unchanged = rather_dark_red
 diff.inserted.unchanged = rather_dark_green
 diff.deleted.changed = bold brightred
 diff.inserted.changed = bold brightgreen
+
+[extensions]
+shelve=
