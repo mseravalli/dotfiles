@@ -139,6 +139,6 @@ set directory=.swp/,~/.swp/,/tmp//
 set undodir=.undo/,~/.undo/,/tmp//
 
 " open new window
-map <leader>t :ter<CR><C-w>j<Esc>i<Esc><C-w>k
+map <leader>t :terminal<CR><C-w>j<Esc>i<Esc><C-w>k
 
 let g:airline_theme='solarized'
