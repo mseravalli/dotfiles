@@ -8,6 +8,7 @@
 # start applets to appear on the top bar
 exec --no-startup-id volumeicon
 exec --no-startup-id nm-applet
+exec --no-startup-id blueman-applet
 
 # i3 config file (v4)
 #
