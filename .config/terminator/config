@@ -7,7 +7,7 @@
     allow_bold = False
     background_color = "#ffffdd"
     cursor_color = "#aaaaaa"
-    font = Noto Sans Mono 9
+    font = Noto Sans Mono 10
     foreground_color = "#2e3436"
     show_titlebar = False
     scrollback_lines = 5000
