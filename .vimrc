@@ -133,7 +133,7 @@ set tabstop=2 shiftwidth=2 expandtab
 set ruler
 set nu
 set nowrap
-set colorcolumn=81
+set colorcolumn=101
 set backupdir=.backup/,~/.backup/,/tmp//
 set directory=.swp/,~/.swp/,/tmp//
 set undodir=.undo/,~/.undo/,/tmp//
