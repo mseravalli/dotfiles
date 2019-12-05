@@ -1,5 +1,5 @@
 [pager]
-pager = cat
+pager = less
 
 [ui]
 merge = vimdiff
