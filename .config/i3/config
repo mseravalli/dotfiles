@@ -10,6 +10,9 @@ exec --no-startup-id volumeicon
 exec --no-startup-id nm-applet
 exec --no-startup-id blueman-applet
 
+# configure keyboard layout
+exec --no-startup-id setxkbmap -layout us -variant intl
+
 # i3 config file (v4)
 #
 # Please see https://i3wm.org/docs/userguide.html for a complete reference!
