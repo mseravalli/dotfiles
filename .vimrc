@@ -108,6 +108,11 @@ call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
+Plugin 'tpope/vim-surround'
+Plugin 'tpope/vim-repeat'
+Plugin 'https://github.com/kana/vim-textobj-user'
+Plugin 'https://github.com/kana/vim-textobj-entire'
+Plugin 'https://github.com/kana/vim-textobj-line'
 
 " All of your Plugins must be added before the following line
 call vundle#end()
@@ -137,8 +142,10 @@ set colorcolumn=101
 set backupdir=.backup/,~/.backup/,/tmp//
 set directory=.swp/,~/.swp/,/tmp//
 set undodir=.undo/,~/.undo/,/tmp//
+set relativenumber
 
-" open new window
+" open terminal above the current one the current needs to be in visual modus
+" (Ctrl+w+N)
 map <leader>t :terminal<CR><C-w>j<Esc>i<Esc><C-w>k
 
 let g:airline_theme='solarized'
