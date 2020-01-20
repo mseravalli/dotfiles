@@ -1,8 +1,8 @@
 [pager]
-pager = less
+pager = cat
 
 [ui]
-merge = vimdiff
+merge = internal:merge3
 editor = vim
 
 [color256]

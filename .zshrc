@@ -137,3 +137,6 @@ if [ -f '/Users/seravalli/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users
 
 # Autocompletion for g4d
 if [ -f '/etc/bash_completion.d/g4d' ]; then source /etc/bash_completion.d/g4d ; fi
+
+# for better coloring on tmux
+export TERM=xterm-256color
