@@ -125,6 +125,7 @@ export LC_ALL=en_US.UTF-8
 
 alias kc="kubectl "
 alias tf="terraform "
+alias open="xdg-open "
 
 # export WORKON_HOME=~/.virtualenvs
 # source virtualenvwrapper.sh
