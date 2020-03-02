@@ -114,6 +114,9 @@ Plugin 'https://tpope.io/vim/commentary.git'
 Plugin 'https://github.com/kana/vim-textobj-user'
 Plugin 'https://github.com/kana/vim-textobj-entire'
 Plugin 'https://github.com/kana/vim-textobj-line'
+Plugin 'scrooloose/nerdtree'
+Plugin 'junegunn/fzf'
+Plugin 'junegunn/fzf.vim'
 
 " All of your Plugins must be added before the following line
 call vundle#end()
@@ -144,9 +147,24 @@ set backupdir=.backup/,~/.backup/,/tmp//
 set directory=.swp/,~/.swp/,/tmp//
 set undodir=.undo/,~/.undo/,/tmp//
 set relativenumber
+set spell
+set hlsearch
+hi Search term=reverse ctermfg=0 ctermbg=2
 
 " open terminal above the current one the current needs to be in visual modus
 " (Ctrl+w+N)
 map <leader>t :terminal<CR><C-w>j<Esc>i<Esc><C-w>k
+" search the command history when pressing Ctrl+p
+map <C-p> :History:<CR>
 
 let g:airline_theme='solarized'
+
+" Remember the changes for the last 1000 edited files
+" up to 500 lines per register will be remembered
+" register with more than 50 Kbytes are skipped
+" 1000 command line history will be saved
+" for more information see :help viminfo-:
+set viminfo='1000,<500,s50,:1000,h
+set history=1000
+set ignorecase
+set smartcase
