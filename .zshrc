@@ -63,7 +63,7 @@ BULLETTRAIN_KCTX_KCONFIG="/Users/seravalli/.kube/config"
 plugins=(
   git
   osx
-  ruby
+  # ruby
   python
 #  zsh-kubernetes
 )
